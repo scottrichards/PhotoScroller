@@ -85,7 +85,7 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
         self.showsHorizontalScrollIndicator = NO;
         self.bouncesZoom = YES;
         self.decelerationRate = UIScrollViewDecelerationRateFast;
-        self.delegate = self;        
+        self.delegate = self;
     }
     return self;
 }
@@ -174,6 +174,7 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
 {
     _imageSize = imageSize;
     self.contentSize = imageSize;
+    NSLog(@"configureForImageSize: w: %f h: %f", self.contentSize.width, self.contentSize.height);
     [self setMaxMinZoomScalesForCurrentBounds];
     self.zoomScale = self.minimumZoomScale;
 }
@@ -250,6 +251,7 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
     offset.y = MAX(minOffset.y, realMaxOffset);
     
     self.contentOffset = offset;
+    NSLog(@"recoverFromResizing: x: %f, y: %f", self.contentOffset.x, self.contentOffset.y);
 }
 
 - (CGPoint)maximumContentOffset

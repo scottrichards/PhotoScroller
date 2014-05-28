@@ -48,6 +48,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageScrollView : UIScrollView
+- (void)setImage:(UIImage *)image;
 
 @property (nonatomic) NSUInteger index;
 

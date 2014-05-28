@@ -47,6 +47,7 @@
 
 #import "PhotoViewController.h"
 #import "ImageScrollView.h"
+#import "PhotoView.h"
 
 @interface PhotoViewController ()
 {
@@ -84,7 +85,7 @@
 - (void)loadView
 {
     NSLog(@"LoadView");
-    self.automaticallyAdjustsScrollViewInsets = NO;
+ /*   self.automaticallyAdjustsScrollViewInsets = NO;
    ImageScrollView *scrollView = [[ImageScrollView alloc] init];
     scrollView.index = _pageIndex;
 //    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -95,33 +96,20 @@
  
     self.view = contentView;    // need to add a sub view otherwise scrollView sits at origin.x,y 0,0 no matter what I set the frame to
     [contentView addSubview:scrollView];
-    
-    NSLog(@"scroll.view.frame: x:%f, y:%f, w %f, h:%f",self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
-    NSLog(@"scroll.view.bounds: x:%f, y:%f, w %f, h:%f",self.view.bounds.origin.x,self.view.bounds.origin.y,self.view.bounds.size.width,self.view.bounds.size.height);
-  
+  */
+    PhotoView *photoView = [[PhotoView alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
+    self.view = photoView;
+    UIImage *frogImage = [UIImage imageNamed:@"LeggyFrog.jpg"];
+    [photoView setImage:frogImage];
+//    [photoView setImage:frogImage]
 }
 
-/*
 - (void)viewDidLoad
 {
-     self.automaticallyAdjustsScrollViewInsets = NO;
-     ImageScrollView *scrollView = [[ImageScrollView alloc] init];
-     scrollView.index = _pageIndex;
-     scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-     CGRect scrollFrame = CGRectMake(10, 200, 300, 300);
-     UIView *contentView = [[UIView alloc] initWithFrame:scrollFrame];
-    [contentView addSubview:scrollView];
-     CGRect scrollBounds = CGRectMake(0, 0, 300, 300);
-    [scrollView setBounds:scrollBounds];
-     //    [scrollView setFrame:scrollFrame];
-     [self.view addSubview:contentView];
-   
- //    self.view = scrollView;
-     NSLog(@"scroll.view.frame: x:%f, y:%f, w %f, h:%f",self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
-     NSLog(@"scroll.view.bounds: x:%f, y:%f, w %f, h:%f",self.view.bounds.origin.x,self.view.bounds.origin.y,self.view.bounds.size.width,self.view.bounds.size.height);
-   //      [self.view setFrame:scrollFrame];
+//    NSLog(@"viewDidLoad self.view %@",self.view);
+ /*   PhotoView *photoView = [[PhotoView alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
+    self.view = photoView; */
 }
-*/
 
 // (this can also be defined in Info.plist via UISupportedInterfaceOrientations)
 - (NSUInteger)supportedInterfaceOrientations

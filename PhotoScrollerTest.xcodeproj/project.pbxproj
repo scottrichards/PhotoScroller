@@ -28,6 +28,7 @@
 		0100177719341AF500C14C07 /* LeggyFrog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0100177419341AF500C14C07 /* LeggyFrog.jpg */; };
 		0100177819341AF500C14C07 /* PeeringFrog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0100177519341AF500C14C07 /* PeeringFrog.jpg */; };
 		0100177A1934E17900C14C07 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010017791934E17900C14C07 /* Reveal.framework */; };
+		0172C7C719355A660026CBF6 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0172C7C619355A660026CBF6 /* PhotoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		0100177419341AF500C14C07 /* LeggyFrog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LeggyFrog.jpg; sourceTree = "<group>"; };
 		0100177519341AF500C14C07 /* PeeringFrog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PeeringFrog.jpg; sourceTree = "<group>"; };
 		010017791934E17900C14C07 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		0172C7C519355A660026CBF6 /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		0172C7C619355A660026CBF6 /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 				0100176C1934182200C14C07 /* PhotoViewController.m */,
 				0100176D1934182200C14C07 /* ImageScrollView.h */,
 				0100176E1934182200C14C07 /* ImageScrollView.m */,
+				0172C7C519355A660026CBF6 /* PhotoView.h */,
+				0172C7C619355A660026CBF6 /* PhotoView.m */,
 			);
 			name = PhotoScroller;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				0100174C193417F000C14C07 /* KSViewController.m in Sources */,
 				0100176F1934182200C14C07 /* PhotoViewController.m in Sources */,
 				01001746193417F000C14C07 /* KSAppDelegate.m in Sources */,
+				0172C7C719355A660026CBF6 /* PhotoView.m in Sources */,
 				01001742193417F000C14C07 /* main.m in Sources */,
 				010017701934182200C14C07 /* ImageScrollView.m in Sources */,
 			);
@@ -515,6 +521,7 @@
 				01001766193417F000C14C07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01001767193417F000C14C07 /* Build configuration list for PBXNativeTarget "PhotoScrollerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +530,7 @@
 				01001769193417F000C14C07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -70,6 +70,7 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
         
     CGPoint _pointToCenterAfterResize;
     CGFloat _scaleToRestoreAfterResize;
+    UIImage *_image;
 }
 
 @end
@@ -89,6 +90,14 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
     }
     return self;
 }
+
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    
+    [self displayImage:_image];
+}
+
 
 - (void)setIndex:(NSUInteger)index
 {

@@ -51,65 +51,22 @@
 
 @interface PhotoViewController ()
 {
-    NSUInteger _pageIndex;
 }
 @end
 
 @implementation PhotoViewController
 
-+ (PhotoViewController *)photoViewControllerForPageIndex:(NSUInteger)pageIndex
-{
-    if (pageIndex < [ImageScrollView imageCount])
-    {
-        return [[self alloc] initWithPageIndex:pageIndex];
-    }
-    return nil;
-}
-
-- (id)initWithPageIndex:(NSInteger)pageIndex
-{
-    self = [super initWithNibName:nil bundle:nil];
-    if (self)
-    {
-        _pageIndex = pageIndex;
-    }
-    return self;
-}
-
-- (NSInteger)pageIndex
-{
-    return _pageIndex;
-}
-
 
 - (void)loadView
 {
     NSLog(@"LoadView");
- /*   self.automaticallyAdjustsScrollViewInsets = NO;
-   ImageScrollView *scrollView = [[ImageScrollView alloc] init];
-    scrollView.index = _pageIndex;
-//    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    UIView *contentView = [[UIView alloc] init];
-    CGRect scrollBounds = CGRectMake(0, 0, 300, 300);
-    [scrollView setFrame:CGRectMake(10, 100, 300, 300)];
-    [scrollView setBounds:scrollBounds];
- 
-    self.view = contentView;    // need to add a sub view otherwise scrollView sits at origin.x,y 0,0 no matter what I set the frame to
-    [contentView addSubview:scrollView];
-  */
+
     PhotoView *photoView = [[PhotoView alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
     self.view = photoView;
     UIImage *frogImage = [UIImage imageNamed:@"LeggyFrog.jpg"];
     [photoView setImage:frogImage];
-//    [photoView setImage:frogImage]
 }
 
-- (void)viewDidLoad
-{
-//    NSLog(@"viewDidLoad self.view %@",self.view);
- /*   PhotoView *photoView = [[PhotoView alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
-    self.view = photoView; */
-}
 
 // (this can also be defined in Info.plist via UISupportedInterfaceOrientations)
 - (NSUInteger)supportedInterfaceOrientations

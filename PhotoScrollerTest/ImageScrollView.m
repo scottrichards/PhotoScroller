@@ -51,14 +51,6 @@
 
 #define TILE_IMAGES 0  // turn on to use tiled images, if off, we use whole images
 
-// forward declaration of our utility functions
-static NSUInteger _ImageCount(void);
-
-
-
-static UIImage *_ImageAtIndex(NSUInteger index);
-
-static NSString *_ImageNameAtIndex(NSUInteger index);
 
 #pragma mark -
 
@@ -98,18 +90,6 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
     [self displayImage:_image];
 }
 
-
-- (void)setIndex:(NSUInteger)index
-{
-    _index = index;
-    
-    [self displayImage:_ImageAtIndex(index)];
-}
-
-+ (NSUInteger)imageCount
-{
-    return _ImageCount();
-}
 
 - (void)layoutSubviews 
 {
@@ -277,48 +257,4 @@ static NSString *_ImageNameAtIndex(NSUInteger index);
 
 @end
 
-static NSArray *_ImageData(void)
-{
-    static NSArray *data = nil;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"ImageData" ofType:@"plist"];
-        NSData *plistData = [NSData dataWithContentsOfFile:path];
-        NSString *error; NSPropertyListFormat format;
-        data = [NSPropertyListSerialization propertyListFromData:plistData
-                                                mutabilityOption:NSPropertyListImmutable
-                                                          format:&format
-                                                errorDescription:&error];
-        if (!data) {
-            NSLog(@"Unable to read image data: %@", error);
-        }
-    });
-    
-    return data;
-}
-
-static NSUInteger _ImageCount(void)
-{
-    static NSUInteger count = 0;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        count = [_ImageData() count];
-    });
-    return count;
-}
-
-static NSString *_ImageNameAtIndex(NSUInteger index)
-{
-    NSDictionary *info = [_ImageData() objectAtIndex:index];
-    return [info valueForKey:@"name"];
-}
-
-// we use "imageWithContentsOfFile:" instead of "imageNamed:" here to avoid caching
-static UIImage *_ImageAtIndex(NSUInteger index)
-{
-    NSString *imageName = _ImageNameAtIndex(index);
-    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
-    return [UIImage imageWithContentsOfFile:path];
-}
 

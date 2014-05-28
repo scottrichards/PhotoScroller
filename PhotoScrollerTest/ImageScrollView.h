@@ -50,8 +50,4 @@
 @interface ImageScrollView : UIScrollView
 - (void)setImage:(UIImage *)image;
 
-@property (nonatomic) NSUInteger index;
-
-+ (NSUInteger)imageCount;
-
 @end
